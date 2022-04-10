@@ -10,16 +10,17 @@ Plug 'tomasr/molokai', {'as':'molokai'}
 " END THEMES
 
 Plug 'jiangmiao/auto-pairs',
-Plug 'vim-airline/vim-airline'  
+Plug 'vim-airline/vim-airline' "Barra de modos 
 Plug 'vim-airline/vim-airline-themes'  
 Plug 'neovim/nvim-lspconfig' " LSP
 Plug 'tpope/vim-surround' "Cambiar los caracquetes (') que encierran una frace // cs<actchar><newchar>
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Auto Completado
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim' "Python plugin
+Plug 'nvim-lua/completion-nvim'
 call plug#end() 
-"--------------------- End Plug section ---------------------
+"--------------------- End Plug section ----------------------
 
 
 "--------------------- Set section ---------------------
@@ -56,11 +57,18 @@ set shiftround
 colorscheme molokai
 let g:molokai_original = 1
 
+"---- LSP Configuration
 
+lua << EOF
+require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach} 
+require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach} 
+require'lspconfig'.dartls.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.emmet_ls.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.java_language_server.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.csharp_ls.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.jsonls.setup{on_attach=require'completion'.on_attach}
 
-
-
-
+EOF
 
 
 
@@ -75,10 +83,6 @@ let g:molokai_original = 1
 
 
 "---------------------------- COC Recommended Config ------------------
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
 " TextEdit might fail if hidden is not set.
 set hidden
 
