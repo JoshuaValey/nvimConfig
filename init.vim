@@ -14,19 +14,26 @@ Plug 'vim-airline/vim-airline' "Barra de modos
 Plug 'vim-airline/vim-airline-themes'  
 Plug 'neovim/nvim-lspconfig' " LSP
 Plug 'tpope/vim-surround' "Cambiar los caracquetes (') que encierran una frace // cs<actchar><newchar>
+Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Auto Completado
 Plug 'davidhalter/jedi-vim' "Python plugin
 Plug 'nvim-lua/completion-nvim'
 Plug 'SirVer/ultisnips'
+Plug 'mattn/emmet-vim'
+Plug 'Yggdroot/indentLine'
+
+
+
 "Js Plugins
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mlaursen/vim-react-snippets'
 Plug 'tpope/vim-commentary' " easy comments with `gc` or `gcc`
-Plug 'mattn/emmet-vim'
+
 call plug#end() 
+
 "--------------------- End Plug section ----------------------
 
 
@@ -96,6 +103,23 @@ let g:user_emmet_settings={
 \    }
 \}
 
+"Pretiier Configuration
+command! -nargs=0 Prettier :CocCommand Prettier.formatFile
+nnoremap <c-f> :Prettier<CR>
+inoremap <c-f> :Prettier<CR>
+
+"Commentary Configuration
+nnoremap <c-c> :Commentary<CR>
+inoremap <c-c> :Commentary<CR>
+vnoremap <c-c> :Commentary<CR>
+
+"Airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+nnoremap <leader>1 :bp<CR>
+nnoremap <leader>2 :bn<CR>
 
 
 "---------------------------- COC Recommended Config ------------------
