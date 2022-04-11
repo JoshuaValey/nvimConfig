@@ -23,8 +23,8 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
-
-
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 
 "Js Plugins
 Plug 'pangloss/vim-javascript'
@@ -120,6 +120,12 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 nnoremap <leader>1 :bp<CR>
 nnoremap <leader>2 :bn<CR>
+
+
+"NERDTREE Configuration
+"nnoremap <silent> <F1>: NERDTreeFind<CR> 
+"nnoremap <leader> <F2>: NERDTreeToggle<CR> 
+let NERDTreeQuitOnOpen=1
 
 
 "---------------------------- COC Recommended Config ------------------
