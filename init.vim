@@ -1,4 +1,4 @@
-"Common Github Repos
+"Commond Github Repos
 "https://github.com/neovim/nvim-lspconfig
 "
 
@@ -25,7 +25,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mlaursen/vim-react-snippets'
 Plug 'tpope/vim-commentary' " easy comments with `gc` or `gcc`
-
+Plug 'mattn/emmet-vim'
 call plug#end() 
 "--------------------- End Plug section ----------------------
 
@@ -86,6 +86,16 @@ vnoremap <c-j> :m '>+1<CR>gv=gv
 
 "Snippets Configuration
 let g:UtilSnipsExpandTrigger = "<c-g>"
+
+"Emmet Configuration
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key =',' "Usar el <space> 2 veces para contruir las etiquetas HTML
+let g:user_emmet_settings={
+ \'javascript':{
+    \'extends':'jsx'
+\    }
+\}
+
 
 
 "---------------------------- COC Recommended Config ------------------
