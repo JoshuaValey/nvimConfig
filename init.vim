@@ -19,6 +19,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Auto Completado
 Plug 'davidhalter/jedi-vim' "Python plugin
 Plug 'nvim-lua/completion-nvim'
+Plug 'SirVer/ultisnips'
+"Js Plugins
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mlaursen/vim-react-snippets'
+Plug 'tpope/vim-commentary' " easy comments with `gc` or `gcc`
+
 call plug#end() 
 "--------------------- End Plug section ----------------------
 
@@ -38,6 +45,8 @@ set cursorline
 set incsearch "marchar busquedas in y hl "
 set hlsearch
 set list
+let mapleader=" "
+nnoremap <SPACE> <Nop>
 "set listchars=tab:›\ ,eol:¬,trail:⋅
 set listchars=tab:›\ ,trail:⋅ "Llenar espacios con puntos
 set splitright
@@ -67,19 +76,16 @@ require'lspconfig'.emmet_ls.setup{on_attach=require'completion'.on_attach}
 require'lspconfig'.java_language_server.setup{on_attach=require'completion'.on_attach}
 require'lspconfig'.csharp_ls.setup{on_attach=require'completion'.on_attach}
 require'lspconfig'.jsonls.setup{on_attach=require'completion'.on_attach}
-
 EOF
 
+"Mover una linea arriba y abajo
+nnoremap <c-k>  :m .-2<CR>== "Mover la linea actual hacia arriba
+nnoremap <c-j>  :m .+1<CR>==  "Mover la linea actual hacia abajo
+vnoremap <c-k>:m '<-2<CR>gv=gv
+vnoremap <c-j> :m '>+1<CR>gv=gv
 
-
-
-
-
-
-
-
-
-
+"Snippets Configuration
+let g:UtilSnipsExpandTrigger = "<c-g>"
 
 
 "---------------------------- COC Recommended Config ------------------
@@ -113,8 +119,8 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ pumvisible() ? "<TAB>" :
+      \ <SID>check_back_space() ? "<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
