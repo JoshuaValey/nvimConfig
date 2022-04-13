@@ -25,12 +25,17 @@ Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-commentary' " easy comments with `gc` or `gcc`
 
 "Js Plugins
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mlaursen/vim-react-snippets'
-Plug 'tpope/vim-commentary' " easy comments with `gc` or `gcc`
+"React Plugins
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
 call plug#end() 
 
@@ -126,6 +131,15 @@ nnoremap <leader>2 :bn<CR>
 "nnoremap <silent> <F1>: NERDTreeFind<CR> 
 "nnoremap <leader> <F2>: NERDTreeToggle<CR> 
 let NERDTreeQuitOnOpen=1
+
+"Activar cuando se use JS o TS Buffers
+"autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+"autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+"Config Coc
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
 
 
 "---------------------------- COC Recommended Config ------------------
