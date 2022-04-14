@@ -14,7 +14,6 @@ Plug 'vim-airline/vim-airline' "Barra de modos
 Plug 'vim-airline/vim-airline-themes'  
 Plug 'neovim/nvim-lspconfig' " LSP
 Plug 'tpope/vim-surround' "Cambiar los caracquetes (') que encierran una frace // cs<actchar><newchar>
-Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Auto Completado
