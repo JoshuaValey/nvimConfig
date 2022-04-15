@@ -22,5 +22,6 @@
 * coc-prettier
 * coc-json
 * coc-texlab
+* coc-css
 
 

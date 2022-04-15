@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround' "Cambiar los caracquetes (') que encierran una frace /
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Auto Completado
+Plug 'neoclide/coc-css'
 Plug 'davidhalter/jedi-vim' "Python plugin
 Plug 'nvim-lua/completion-nvim'
 Plug 'SirVer/ultisnips'
@@ -140,7 +141,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver'
   \ ]
 
-
+" auto completar archivos css
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "---------------------------- COC Recommended Config ------------------
 " TextEdit might fail if hidden is not set.
 set hidden
